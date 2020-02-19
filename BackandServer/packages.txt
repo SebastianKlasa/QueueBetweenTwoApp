@@ -1,0 +1,11 @@
+Microsoft.EntityFrameworkCore.Sqlite
+Microsoft.EntityFrameworkCore.Design
+Microsoft.EntityFrameworkCore.Tools
+RabbitMQ.Client
+Microsoft.AspNetCore.Session
+Microsoft.AspNetCore.SignalR.Client
+Microsoft.AspNetCore.SignalR
+
+
+db reference:
+Scaffold-DbContext "Server=SEBASTIAN\DB; Database=carRentalDB; Integrated Security=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Tables Users, Cars, Hire

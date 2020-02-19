@@ -1,0 +1,44 @@
+﻿@model ServerApplication.Models.Hire
+
+@{
+    ViewData["Title"] = "CreateHire";
+}
+
+<h1>Potwierdź wypożyczenie</h1>
+
+<div>
+    <hr />
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Data rozpoczęcia
+                </th>
+                <th>
+                    Data zakończenia
+                </th>
+                <th>
+                    Całkowity koszt
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => model.DataWynajmu)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.DataZakonczeniaWynajmu)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.CenaWynajmu)
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div>
+   @*<a asp-action="delete" asp-route-id="@Model.HireId">Zrezygnuj</a>*@
+    <a asp-action="Index">Potwierdź</a>
+</div>

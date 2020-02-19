@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\Cars.cs" />
+    <Compile Remove="Models\Hire.cs" />
+    <Compile Remove="Models\Users.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.2.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="RabbitMQ.Client" Version="5.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ServerApplication">
+      <HintPath>..\..\ServerApplication\ServerApplication\bin\Debug\netcoreapp2.2\ServerApplication.dll</HintPath>
+    </Reference>
+    <Reference Include="ServerApplication.Views">
+      <HintPath>..\..\ServerApplication\ServerApplication\bin\Debug\netcoreapp2.2\ServerApplication.Views.dll</HintPath>
+    </Reference>
+    <Reference Include="test">
+      <HintPath>..\..\test\test\bin\Debug\netcoreapp2.2\test.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

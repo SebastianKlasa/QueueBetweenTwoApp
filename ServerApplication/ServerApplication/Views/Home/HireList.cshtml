@@ -1,0 +1,52 @@
+﻿@model List<ServerApplication.Models.HireListDetails>
+
+@{
+    ViewData["Title"] = "HireList";
+}
+
+<h1>Lista wypożyczeń</h1>
+
+<div id="yourdivid"></div>
+
+<script src="~/lib/signalr/dist/browser/signalr.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+    "use strict";
+
+    function drawHires() {
+        $.ajax({
+            type: 'GET',
+            url: "https://localhost:44324/api/GetAllHires",
+            data: { get_param: 'value' },
+            dataType: 'json',
+            success: function (data) {
+                var content = "<table BORDER><tr><td> ID </td><td> StatusWypozyczenia </td><td> CenaWynajmu </td><td> DataWynajmu </td><td> DataZakonczeniaWynajmu </td></tr>";
+                for (var i = 0; i < data.length; i++) {
+                    var CenaWynajmu = data[i].CenaWynajmu;
+                    var DataWynajmu = data[i].DataWynajmu;
+                    var DataZakonczeniaWynajmu = data[i].DataZakonczeniaWynajmu;
+                    var StatusWypozyczenia = data[i].StatusWypozyczenia;
+                    var IdWynajmu = data[i].HireId;
+
+                    content += "<tr><td>" + IdWynajmu + "</td><td>" + StatusWypozyczenia + "</td><td>" + CenaWynajmu + "</td><td>" + DataWynajmu + "</td><td>" + DataZakonczeniaWynajmu + "</td><td><a href='https://localhost:44324/home/HireDetails/" + IdWynajmu + "'>Szczegóły</a></td></tr>";
+                }
+                content += "</table>";
+                $('#yourdivid').html(content);
+            },
+            error: function (e) {
+                console.log(e);
+            }
+        });
+    }
+
+    drawHires();
+
+    var connection = new signalR.HubConnectionBuilder().withUrl("/listHub").build();
+
+    connection.on("ReceiveMessage", function (user, message) {
+        drawHires();
+    });
+
+    connection.start();
+
+</script>

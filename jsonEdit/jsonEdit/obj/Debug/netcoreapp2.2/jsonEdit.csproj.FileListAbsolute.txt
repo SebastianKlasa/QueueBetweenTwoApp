@@ -1,0 +1,11 @@
+E:\KSRprojekt\jsonEdit\jsonEdit\bin\Debug\netcoreapp2.2\jsonEdit.deps.json
+E:\KSRprojekt\jsonEdit\jsonEdit\bin\Debug\netcoreapp2.2\jsonEdit.runtimeconfig.json
+E:\KSRprojekt\jsonEdit\jsonEdit\bin\Debug\netcoreapp2.2\jsonEdit.runtimeconfig.dev.json
+E:\KSRprojekt\jsonEdit\jsonEdit\bin\Debug\netcoreapp2.2\jsonEdit.dll
+E:\KSRprojekt\jsonEdit\jsonEdit\bin\Debug\netcoreapp2.2\jsonEdit.pdb
+E:\KSRprojekt\jsonEdit\jsonEdit\obj\Debug\netcoreapp2.2\jsonEdit.csprojAssemblyReference.cache
+E:\KSRprojekt\jsonEdit\jsonEdit\obj\Debug\netcoreapp2.2\jsonEdit.csproj.CoreCompileInputs.cache
+E:\KSRprojekt\jsonEdit\jsonEdit\obj\Debug\netcoreapp2.2\jsonEdit.AssemblyInfoInputs.cache
+E:\KSRprojekt\jsonEdit\jsonEdit\obj\Debug\netcoreapp2.2\jsonEdit.AssemblyInfo.cs
+E:\KSRprojekt\jsonEdit\jsonEdit\obj\Debug\netcoreapp2.2\jsonEdit.dll
+E:\KSRprojekt\jsonEdit\jsonEdit\obj\Debug\netcoreapp2.2\jsonEdit.pdb

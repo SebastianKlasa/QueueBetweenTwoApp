@@ -1,0 +1,89 @@
+﻿@model List<ServerApplication.Models.Hire>
+
+@{
+    ViewData["Title"] = "Hire";
+}
+@using Microsoft.AspNetCore.Routing
+
+<h1>Hire</h1>
+
+<h4>Hire</h4>
+<hr />
+<div align ="left" style="width:40%">
+    <table>
+        <tr>
+            <th>Model</th>
+            <th>Yearbook</th>
+            <th>Price per day</th>
+            <th>ID</th>
+        </tr>
+        <tr>
+            <td>@ViewBag.carToHireModel</td>
+            <td>@ViewBag.carToHireYearbook</td>
+            <td>@ViewBag.carToHirePrice</td>
+            <td>@Context.GetRouteData().Values["id"]</td>
+        </tr>
+    </table>
+</div>
+<div align="right" style="width:40%">
+    <p>Pojazd niedostępny w następujących terminach</p>
+    <table>
+        <tr>
+            <th>Data rozpoczęcia</th>
+            <th>Data zakończenia</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataWynajmu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataZakonczeniaWynajmu)
+                </td>
+            </tr>
+        }
+    </table>
+
+</div>
+<hr />
+@if (TempData["Message"] != null)
+{
+    <p>@TempData["Message"]</p>
+}
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateHire" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <div>
+                    <input name="CarID" type="hidden" value=@Context.GetRouteData().Values["id"] required />
+                </div>
+            </div>
+            <div class="form-group">
+                <div>
+                    Data wynajmu <br />
+                    <input name="DataWynajmu" type="date" required />
+                </div>
+            </div>
+            <div class="form-group">
+                <div>
+                    Data zakonczenia wynajmu <br />
+                    <input name="DataZakonczeniaWynajmu" type="date" required />
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Wynajmij" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

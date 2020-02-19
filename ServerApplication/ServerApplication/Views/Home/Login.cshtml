@@ -1,0 +1,46 @@
+﻿@model ServerApplication.Models.Users
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>Login</h1>
+
+<h4>Users</h4>
+<hr />
+<div class="row">
+    @if (ViewBag.Message != null)
+    {
+        <p>@ViewBag.Message</p>
+        <br /><br />
+    }
+    <div class="col-md-4">
+        <form action="api/User/Login" method="post">
+            <div class="form-group">
+                <div>
+                    E-mail
+                    <input name="email" type="text" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div>
+                    Password
+                    <input name="haslo" type="password" />
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Login" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

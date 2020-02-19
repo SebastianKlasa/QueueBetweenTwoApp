@@ -1,0 +1,79 @@
+﻿@model ServerApplication.Models.Users
+
+@{
+    ViewData["Title"] = "AddUser";
+}
+
+<h1>Darmowa rejestracja</h1>
+
+<hr />
+<div class="row">
+    @if (ViewBag.Message != null)
+    {
+        <p>@ViewBag.Message</p>
+        <br /><br />
+    }
+    <div class="col-md-4">
+        <form action="api/User/Add" method="post">
+            <div class="form-group">
+                <div>
+                    Imie <br/>
+                    <input name="imie" type="text" required/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div>
+                    Nazwisko <br />
+                    <input name="nazwisko" type="text" required/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div>
+                    E-mail <br />
+                    <input name="email" type="text" required/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div>
+                    Haslo <br />
+                    <input name="haslo" type="password" required/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div>
+                    Potwierdz haslo <br />
+                    <input name="potwierdzHaslo" type="password" required/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div>
+                    Data urodzenia <br />
+                    <input name="dataUrodzenia" type="date" required/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div>
+                    Adres <br />
+                    <input name="adres" type="text" required/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div>
+                    Nr telefonu <br />
+                    <input name="telefon" type="text" required/>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,79 @@
+﻿@model IEnumerable<ServerApplication.Models.Cars>
+@using Microsoft.AspNetCore.Http;
+
+@{
+    ViewData["Title"] = "CarsList";
+}
+
+<h1>CarsList</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Marka)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rocznik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LiczbaDrzwi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nadwozie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CenaZaGodzine)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dostepnosc)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Marka)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rocznik)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LiczbaDrzwi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nadwozie)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CenaZaGodzine)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dostepnosc)
+                </td>
+                <td>
+                    @if (Context.Session.GetString("userEmail") == null)
+                    {
+                        <a>zaloguj aby zarezerwować</a>
+                    }
+                    else
+                    {
+                        if (item.Dostepnosc == true)
+                        {
+                        <a asp-action="Hire" asp-route-id=@item.CarId>Wynajmij</a>
+                        }
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

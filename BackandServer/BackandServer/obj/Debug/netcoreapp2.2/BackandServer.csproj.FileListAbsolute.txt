@@ -1,0 +1,24 @@
+E:\KSRprojekt\BackandServer\BackandServer\bin\Debug\netcoreapp2.2\BackandServer.deps.json
+E:\KSRprojekt\BackandServer\BackandServer\bin\Debug\netcoreapp2.2\BackandServer.runtimeconfig.json
+E:\KSRprojekt\BackandServer\BackandServer\bin\Debug\netcoreapp2.2\BackandServer.runtimeconfig.dev.json
+E:\KSRprojekt\BackandServer\BackandServer\bin\Debug\netcoreapp2.2\BackandServer.dll
+E:\KSRprojekt\BackandServer\BackandServer\bin\Debug\netcoreapp2.2\BackandServer.pdb
+E:\KSRprojekt\BackandServer\BackandServer\obj\Debug\netcoreapp2.2\BackandServer.csprojAssemblyReference.cache
+E:\KSRprojekt\BackandServer\BackandServer\obj\Debug\netcoreapp2.2\BackandServer.csproj.CoreCompileInputs.cache
+E:\KSRprojekt\BackandServer\BackandServer\obj\Debug\netcoreapp2.2\BackandServer.AssemblyInfoInputs.cache
+E:\KSRprojekt\BackandServer\BackandServer\obj\Debug\netcoreapp2.2\BackandServer.AssemblyInfo.cs
+E:\KSRprojekt\BackandServer\BackandServer\obj\Debug\netcoreapp2.2\BackandServer.dll
+E:\KSRprojekt\BackandServer\BackandServer\obj\Debug\netcoreapp2.2\BackandServer.pdb
+E:\KSRprojekt\BackandServer\BackandServer\bin\Debug\netcoreapp2.2\test.dll
+E:\KSRprojekt\BackandServer\BackandServer\bin\Debug\netcoreapp2.2\test.pdb
+E:\KSRprojekt\BackandServer\BackandServer\obj\Debug\netcoreapp2.2\BackandServer.csproj.CopyComplete
+E:\KSRprojekt\BackandServer\BackandServer\bin\Debug\netcoreapp2.2\ServerApplication.dll
+E:\KSRprojekt\BackandServer\BackandServer\bin\Debug\netcoreapp2.2\ServerApplication.Views.dll
+E:\KSRprojekt\BackandServer\BackandServer\bin\Debug\netcoreapp2.2\ServerApplication.pdb
+E:\KSRprojekt\BackandServer\BackandServer\bin\Debug\netcoreapp2.2\ServerApplication.Views.pdb
+E:\na gita\KSRprojekt\BackandServer\BackandServer\obj\Debug\netcoreapp2.2\BackandServer.csprojAssemblyReference.cache
+E:\na gita\KSRprojekt\BackandServer\BackandServer\obj\Debug\netcoreapp2.2\BackandServer.csproj.CoreCompileInputs.cache
+E:\na gita\KSRprojekt\BackandServer\BackandServer\obj\Debug\netcoreapp2.2\BackandServer.AssemblyInfoInputs.cache
+E:\na gita\KSRprojekt\BackandServer\BackandServer\obj\Debug\netcoreapp2.2\BackandServer.AssemblyInfo.cs
+E:\na gita\KSRprojekt\BackandServer\BackandServer\obj\Debug\netcoreapp2.2\BackandServer.dll
+E:\na gita\KSRprojekt\BackandServer\BackandServer\obj\Debug\netcoreapp2.2\BackandServer.pdb

@@ -1,0 +1,154 @@
+﻿@model ServerApplication.Models.Hire
+
+@{
+    ViewData["Title"] = "HireDetails";
+}
+
+<h1>HireDetails</h1>
+
+<div>
+    <h4>Szczegóły</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Rozpoczęcie wynajmu
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DataWynajmu)
+        </dd>
+        <dt class="col-sm-2">
+            Zakończenie wynajmu
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DataZakonczeniaWynajmu)
+        </dd>
+        <dt class="col-sm-2">
+            Cena wynajmu
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CenaWynajmu)
+        </dd>
+    </dl>
+</div>
+
+<div id="yourdivid"></div>
+<div>
+    @if (Model.StatusWypozyczenia != "usuniety")
+    {
+        <a asp-action="changeStatus" asp-route-id="@Model.HireId">|Zmień status|</a>
+        <a asp-action="delete" asp-route-id="@Model.HireId">|Usuń|</a>
+        <a asp-action="PayForHire" asp-route-id="@Model.HireId">|Oznacz jako opłacone|</a>
+    }
+    <a asp-action="Index">|Zakończ|</a>
+</div>
+
+<div>
+    <h4>Pojazd</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Car.Marka)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Car.Marka)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Car.Model)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Car.Model)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Car.Rocznik)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Car.Rocznik)
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <h4>Użytkownik</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.User.Imie)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.User.Imie)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.User.Nazwisko)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.User.Nazwisko)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.User.Telefon)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.User.Telefon)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.User.DataUrodzenia)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.User.DataUrodzenia)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.User.Adres)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.User.Adres)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.User.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.User.Email)
+        </dd>
+    </dl>
+</div>
+
+<script src="~/lib/signalr/dist/browser/signalr.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+    "use strict";
+
+    function drawHires() {
+        $.ajax({
+            type: 'GET',
+            url: "https://localhost:44324/api/GetHire/"+@Model.HireId,
+            data: { get_param: 'value' },
+            dataType: 'json',
+            success: function (data) {
+                var status = data.StatusWypozyczenia;
+                var zaplacone = data.CzyOplacone;
+                var zaplaconeStatus;
+                if (zaplacone == true) {
+                    zaplaconeStatus = "tak";
+                }
+                else {
+                    zaplaconeStatus = "nie";
+                }
+                var content = "<ul><li>Status wypozyczenia: "+ status +"</li><li>Opłacone: "+ zaplaconeStatus +"</li></ul>";
+                console.log(data);
+                $('#yourdivid').html(content);
+            },
+            error: function (e) {
+                console.log(e);
+            }
+        });
+    }
+
+    drawHires();
+
+    var connection = new signalR.HubConnectionBuilder().withUrl("/listHub").build();
+
+    connection.on("ReceiveMessage", function (user, message) {
+        drawHires();
+    });
+
+    connection.start();
+
+</script>
